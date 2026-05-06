@@ -32,7 +32,8 @@ a {
 }
 
 .page-shell {
-  width: min(100%, 1110px);
+  width: 100%;
+  max-width: 1110px;
   min-height: 100svh;
   margin: 0 auto;
   padding: clamp(1.5rem, 2.8vw, 2.3rem) clamp(1.1rem, 3vw, 2.2rem) 2.2rem;
@@ -48,10 +49,15 @@ a {
   font-weight: 850;
 }
 
+.page-shell h1 span + span {
+  margin-left: 0.22em;
+}
+
 .showcase {
   width: min(100%, 1030px);
   margin: 0 auto;
   padding: clamp(1.4rem, 2.6vw, 2rem);
+  overflow: hidden;
   background:
     linear-gradient(145deg, rgba(12, 13, 17, 0.98), rgba(2, 3, 5, 0.98)),
     #050506;
@@ -408,34 +414,83 @@ a {
   right: clamp(1rem, 3vw, 2.1rem);
 }
 
-@media (max-width: 740px) {
+@media (max-width: 1024px) {
   .page-shell {
-    padding-top: 1.2rem;
+    padding-inline: clamp(1rem, 3vw, 1.6rem);
+  }
+
+  .page-shell h1 {
+    font-size: clamp(2.35rem, 6.3vw, 3.8rem);
   }
 
   .showcase {
-    padding: 0.85rem;
+    padding: clamp(1rem, 2.4vw, 1.45rem);
+  }
+
+  .copy-stack {
+    width: min(22rem, 54%);
+  }
+}
+
+@media (max-width: 900px) {
+  .glass-stage {
+    aspect-ratio: 1.55;
+    min-height: 18rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .page-shell {
+    padding: 1.2rem 0.95rem 1.6rem;
+  }
+
+  .page-shell h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.1rem, 10.5vw, 2.9rem);
+    line-height: 0.98;
+  }
+
+  .page-shell h1 span {
+    display: block;
+  }
+
+  .page-shell h1 span + span {
+    margin-left: 0;
+  }
+
+  .showcase {
+    padding: 0.65rem;
+    border-color: rgba(255, 255, 255, 0.04);
   }
 
   .glass-stage {
-    aspect-ratio: 0.72;
-    min-height: 34rem;
+    height: clamp(29rem, 128vw, 36rem);
+    min-height: 0;
+    aspect-ratio: auto;
+    border-radius: 0.45rem;
+    transform: none;
   }
 
   .glass-nav {
     top: 3%;
+    left: 3.5%;
+    right: 3.5%;
     height: 2.35rem;
-    gap: 0.65rem;
-    overflow-x: auto;
-    scrollbar-width: none;
+    min-height: 2.35rem;
+    gap: clamp(0.5rem, 2.3vw, 0.72rem);
+    padding: 0 clamp(0.58rem, 2.5vw, 0.9rem);
+    overflow: hidden;
+    font-size: clamp(0.5rem, 2.2vw, 0.6rem);
   }
 
-  .glass-nav::-webkit-scrollbar {
+  .glass-nav .sign-in {
     display: none;
   }
 
   .pane-field {
-    top: 12%;
+    left: 3.5%;
+    right: 3.5%;
+    top: 11.5%;
     bottom: 4%;
   }
 
@@ -473,22 +528,90 @@ a {
   }
 
   .copy-stack {
-    width: min(19rem, calc(100% - 2.2rem));
-    top: 2rem;
-    left: 1.4rem;
+    width: min(18.5rem, calc(100% - 2rem));
+    top: clamp(1.45rem, 8vw, 2.15rem);
+    left: clamp(1rem, 5vw, 1.45rem);
   }
 
   .copy-stack h2 {
-    font-size: clamp(2.55rem, 13vw, 3.5rem);
+    font-size: clamp(2.4rem, 12vw, 3.35rem);
     max-width: 8.8ch;
+    line-height: 0.92;
   }
 
   .intro {
-    max-width: 17rem;
+    max-width: min(17rem, 92%);
+    font-size: clamp(0.62rem, 2.6vw, 0.72rem);
   }
 
   .meta-right {
     display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .page-shell {
+    padding-inline: 0.7rem;
+  }
+
+  .showcase {
+    padding: 0.55rem;
+  }
+
+  .glass-stage {
+    height: clamp(28rem, 132vw, 33rem);
+  }
+
+  .glass-nav {
+    gap: 0.46rem;
+  }
+
+  .glass-nav a {
+    max-width: 4.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .copy-stack {
+    width: calc(100% - 1.7rem);
+  }
+
+  .copy-stack h2 {
+    font-size: clamp(2.1rem, 11.6vw, 2.85rem);
+  }
+
+  .actions {
+    gap: 0.45rem;
+  }
+
+  .actions a {
+    min-height: 2rem;
+    padding-inline: 0.72rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .page-shell h1 {
+    font-size: 1.95rem;
+  }
+
+  .glass-nav {
+    gap: 0.36rem;
+    padding-inline: 0.5rem;
+  }
+
+  .glass-nav a {
+    font-size: 0.48rem;
+  }
+
+  .copy-stack h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (hover: none) {
+  .glass-stage {
+    transform: none;
   }
 }
 

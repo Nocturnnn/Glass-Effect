@@ -154,7 +154,11 @@ function GlassStage() {
 export default function App() {
   return (
     <main className="page-shell">
-      <h1>Glass Effect from ThreeJS</h1>
+      <h1>
+        <span>Glass Effect</span>
+        {" "}
+        <span>from ThreeJS</span>
+      </h1>
       <div className="showcase">
         <GlassStage />
       </div>
